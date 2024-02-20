@@ -27,7 +27,7 @@ function Mainbody() {
         return () => clearInterval(intervalId)
     },[])
 
-    const contractAdress = '0xf53D69a470B88767503B90B6aD7fd92b29389C3d';
+    const contractAdress = '0x96dC0F297C4D6c84Bf725B7491B05f506e08f985';
     let provider;
     if(typeof window.ethereum !== 'undefined'){
         provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -65,7 +65,6 @@ function Mainbody() {
                 value: ethers.utils.parseEther(('0.005' * quantity).toString()),
             });
             console.log("response: ", response);
-
         } catch (error) {
             const errorMessage = error.message || '';
             if (errorMessage.includes("user rejected transaction")) {
