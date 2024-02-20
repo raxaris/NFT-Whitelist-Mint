@@ -82,35 +82,54 @@ function Mainbody() {
 
     return (
         <div className="row mx-auto p-5 text-center">
-            <h2>AITU NFT Development</h2>
-            <div className="mt-5 p-5">
-                {connected?
-                    <button type="button" onClick={mintFunction} className="btn btn-primary btn-lg px-5 mintbutton">Mint</button>
-                    :
-                    <button type="button" onClick={connectWallet} className="btn btn-primary btn-lg px-5 connectButton">Connect</button>
-                }
-            </div>
-            <div className="mt-5 p-5">
-                {connected?
-                    <div className='connected'>
-                        <h2>Minting Available!</h2>
-                        <h3>{displayStatus}</h3>
-                    </div>
-                    : <h2>Connect MetaMask!</h2>
-                }
-            </div>
-            <div className="mt-5 p-5">
-                {connected?
-                    <a href={'https://testnets.opensea.io/' + connectedAddress + '/collected'} className='btn btn-primary btn-lg px-5'>Go to OpenSea to check NFTs</a>
-                    :
-                    <div></div> 
-                }
-            </div>
-            <div>
-                <h3 className='error'>{error}</h3>
-                <div>{loading ? <h3>{loading}</h3> : ''}</div>
-            </div>
+        <h2>AITU NFT Development</h2>
+      
+        <div className="mt-5 p-5">
+          {connected ?
+            <button type="button" onClick={mintFunction} className="btn btn-primary btn-lg px-5 mintbutton">Mint</button>
+            :
+            <button type="button" onClick={connectWallet} className="btn btn-primary btn-lg px-5 connectButton">Connect</button>
+          }
+        
         </div>
+        <div className="mt-3">
+          {connected ?
+            <div>
+              <button type="button" /*onClick={checkMembership}*/ className="btn btn-primary btn-lg px-5 connectButton">Check Membership</button>
+              <div className="mt-3">
+                <p>Membership Status: {}</p>
+              </div>
+            </div>
+            :
+            <div></div>
+          }
+        </div>
+
+        <div className=" p-5">
+          {connected ?
+            <div className='connected'>
+              <h2>Minting Available!</h2>
+              <h3>{displayStatus}</h3>
+            </div>
+            :
+            <h2>Connect MetaMask!</h2>
+          }
+        </div>
+      
+        <div className="mt-5 p-5">
+          {connected ?
+            <a href={'https://testnets.opensea.io/' + connectedAddress + '/collected'} className='btn btn-primary btn-lg px-5'>Go to OpenSea to check NFTs</a>
+            :
+            <div></div>
+          }
+        </div>
+      
+        <div>
+          <h3 className='error'>{error}</h3>
+          <div>{loading ? <h3>{loading}</h3> : ''}</div>
+        </div>
+      </div>
+      
     );
 }
 

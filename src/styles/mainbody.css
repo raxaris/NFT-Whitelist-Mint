@@ -54,3 +54,12 @@
     border: none;
     transition: all 0.2s ease-in;
 }
+.nav-item{
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.2s ease-in;
+    &:hover{
+        opacity: 0.8;
+    }
+}
