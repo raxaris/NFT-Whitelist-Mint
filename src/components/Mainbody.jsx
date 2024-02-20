@@ -83,9 +83,9 @@ function Mainbody() {
             <h2>AITU NFT Development</h2>
             <div className="mt-5 p-5">
                 {connected?
-                    <button type="button" onClick={mintFunction} className="btn btn-primary btn-lg">Mint</button>
+                    <button type="button" onClick={mintFunction} className="btn btn-primary btn-lg px-5 mintbutton">Mint</button>
                     :
-                    <button type="button" onClick={connectWallet} className="btn btn-primary btn-lg p-5 rounded-5">Connect</button>
+                    <button type="button" onClick={connectWallet} className="btn btn-primary btn-lg px-5 connectButton">Connect</button>
                 }
             </div>
             <div className="mt-5 p-5">

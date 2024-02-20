@@ -7,7 +7,7 @@
     color: white;
     gap: 6rem;
 }
-
+ 
 .mainbody h2 {
     font-size: 2.5rem;
 }
@@ -37,4 +37,20 @@
 
 .error{
     color: red;
+}
+.mintbutton{
+    width: 250px;
+    padding: 16px;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.2s ease-in;
+}
+.connectButton{
+    width: 250px;
+    padding: 16px;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.2s ease-in;
 }
