@@ -9,6 +9,7 @@ function Mainbody() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [totalMinted, setTotalMinted] = useState(0);
+    const [connectedAddress, setConnectedAddress] = useState('');
     const maxMinted = 500;
     const displayTokens = `${totalMinted}/${maxMinted}`;
     const displayStatus = totalMinted === maxMinted ? 'Sold out' : displayTokens;
@@ -40,11 +41,13 @@ function Mainbody() {
     async function connectWallet(){
         if (window.ethereum){
             try{
-                await window.ethereum.request({ method: "eth_requestAccounts"});
+                const connectedAddressNew = await window.ethereum.request({ method: "eth_requestAccounts"});
+                setConnectedAddress(connectedAddressNew)
                 setConnected(true);
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
+                console.log(address)
             } catch (e) {
                 console.log(e);
             }
@@ -83,9 +86,9 @@ function Mainbody() {
             <h2>AITU NFT Development</h2>
             <div className="mt-5 p-5">
                 {connected?
-                    <button type="button" onClick={mintFunction} className="btn btn-primary btn-lg">Mint</button>
+                    <button type="button" onClick={mintFunction} className="btn btn-primary btn-lg px-5 mintbutton">Mint</button>
                     :
-                    <button type="button" onClick={connectWallet} className="btn btn-primary btn-lg p-5 rounded-5">Connect</button>
+                    <button type="button" onClick={connectWallet} className="btn btn-primary btn-lg px-5 connectButton">Connect</button>
                 }
             </div>
             <div className="mt-5 p-5">
@@ -95,6 +98,13 @@ function Mainbody() {
                         <h3>{displayStatus}</h3>
                     </div>
                     : <h2>Connect MetaMask!</h2>
+                }
+            </div>
+            <div className="mt-5 p-5">
+                {connected?
+                    <a href={'https://testnets.opensea.io/' + connectedAddress + '/collected'} className='btn btn-primary btn-lg px-5'>Go to OpenSea to check NFTs</a>
+                    :
+                    <div></div> 
                 }
             </div>
             <div>
